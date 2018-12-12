@@ -33,20 +33,21 @@ def gen_str_config(font_size=12, margin=1.5, indent=True, section_counter=[0, 0,
 
     str_config = """
     \documentclass[{}pt]{{article}}
-    \usepackage[a4paper, margin={}in]{{geometry}}
-    \usepackage[absolute,overlay]{{textpos}}
-    \usepackage{{graphicx}}
-    \usepackage{{calc}}
-    \usepackage{{tikz}}
-    \usepackage{{enumerate}}
-    \usepackage{{color}}
+    \\usepackage[a4paper, margin={}in]{{geometry}}
+    \\usepackage[absolute,overlay]{{textpos}}
+    \\usepackage{{graphicx}}
+    \\usepackage{{calc}}
+    \\usepackage{{tikz}}
+    \\usepackage{{enumerate}}
+    \\usepackage{{color}}
     {}
     \setlength{{\TPHorizModule}}{{1pt}}
     \setlength{{\TPVertModule}}{{1pt}}
     \setcounter{{section}}{{{}}}
     \setcounter{{subsection}}{{{}}}
     \setcounter{{subsubsection}}{{{}}}
-    """.format(font_size, margin, str_indent,
+    """
+    str_config.format(font_size, margin, str_indent,
                section_counter[0], section_counter[1], section_counter[2])
     return str_config
 
@@ -152,7 +153,7 @@ def gen_str_itemize_size(width, list_type, item_sep, str_items, Id):
 
     str_items = str_items.split('\item ')
     item_longest_length = max(map(len, str_items))
-    item_longest = filter(lambda x: len(x) == item_longest_length, str_items)
+    item_longest = list(filter(lambda x: len(x) == item_longest_length, str_items))
     item_longest = '1 ' + item_longest[0]
 
     str_text += """
