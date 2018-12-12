@@ -47,7 +47,7 @@ def gen_str_config(font_size=12, margin=1.5, indent=True, section_counter=[0, 0,
     \setcounter{{subsection}}{{{}}}
     \setcounter{{subsubsection}}{{{}}}
     """
-    str_config.format(font_size, margin, str_indent,
+    str_config = str_config.format(font_size, margin, str_indent,
                section_counter[0], section_counter[1], section_counter[2])
     return str_config
 
